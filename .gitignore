@@ -1,0 +1,10 @@
+node_modules/
+
+server/.env
+client/.env
+
+client/node_modules/.vite/
+
+*.log
+
+.DS_Store

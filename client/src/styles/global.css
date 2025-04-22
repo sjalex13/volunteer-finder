@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --bg: #111017;
+  --surface: #1f1e2f;
+  --primary: #ff6f61;
+  --secondary: #6afcff;
+  --accent: #ffe66d;
+  --text: #eaeaea;
+  --text-secondary: #cfcfcf;
+  --error: #f44455;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #111017, #1f1e2f, #111017);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: bgShift 20s ease infinite;
+  opacity: 0.6;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+nav {
+  background: var(--surface);
+  padding: 1rem 2rem;
+  border-bottom: 3px solid var(--primary);
+}
+
+nav a {
+  margin-right: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--secondary);
+  text-shadow: 0 0 8px var(--secondary);
+}
+
+h1, h2, h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+form {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  max-width: 480px;
+  margin: 2rem auto;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid var(--surface);
+  border-radius: 6px;
+  background: #1a1729;
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 8px var(--secondary);
+}
+
+button {
+  background: var(--primary);
+  color: #111017;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+}
+
+.opportunity-card {
+  background: var(--surface);
+  border-left: 4px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.opportunity-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--secondary);
+}
+
+@media (max-width: 600px) {
+  nav { padding: 1rem; }
+  form, .opportunity-card { margin: 1rem; padding: 1rem; }
+}
